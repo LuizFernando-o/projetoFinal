@@ -1,13 +1,9 @@
-<footer class="container-fluid">
+<footer class="container-fluid table-secondary py-4">
     <div class="text-center">
-       <img src="app/assets/img/footer.png" alt="">
+        <img src="app/assets/img/footer.png" alt="" class="img-fluid rounded-circle ">
+        <br>
+        <small>Todos os direitos reservados &copy; 2020.</small>
 </footer>
-
-<footer class="container text-center">
-    <h6> Todos os direitos reservados &copy; 2020.</h6>
-</footer>
-
-
 <!-- JQuery -->
 <script src="app/assets/js/jquery.js"></script>
 <!-- Bootstrap -->
