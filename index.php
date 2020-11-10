@@ -1,43 +1,19 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<?php
+include_once "app/site/paginas/includes/header.php";
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projeto Final</title>
+// <!-- Navegação -->
+include_once "app/site/paginas/includes/navegacao.php";
+// <!-- Fim Navegação -->
 
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="app/assets/css/bootstrap.min.css">
-    <!-- Outros -->
-    <link rel="stylesheet" href="app/assets/img/icons/icomon.css">
-    <!-- Meu CSS -->
-    <link rel="stylesheet" href="app/assets/css/projetoFinalCSS.css">
+// <!-- Fim Header -->
+echo "<hr>";
 
-</head>
+// <!-- Páginas do meu site -->
+echo '<h1>Minhas páginas</h1>';
 
-<body>
+// <!-- Fim Páginas do meu site -->
 
-    <!-- Header -->
-    <!-- Fim Header -->
+echo '<hr>';
+// <!-- Footer -->
 
-
-
-
-    <!-- Páginas do meu site -->
-    <!-- Fim Páginas do meu site -->
-
-
-
-
-    <!-- Footer -->
-
-    <!-- JQuery -->
-    <script src="app/assets/js/jquery.js"></script>
-    <!-- Bootstrap -->
-    <script src="app/assets/js.bootstrap.min.js"></script>
-    <!-- Meu JavaScript -->
-    <script src="app/assets/projetoFinal.js"></script>
-
-</body>
-
-</html>
+include_once "app/site/paginas/includes/footer.php";
