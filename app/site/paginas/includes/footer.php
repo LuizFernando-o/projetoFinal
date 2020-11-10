@@ -1,4 +1,11 @@
-<h1>Footer</h1>
+<footer class="container-fluid">
+    <div class="text-center">
+       <img src="app/assets/img/footer.png" alt="">
+</footer>
+
+<footer class="container text-center">
+    <h6> Todos os direitos reservados &copy; 2020.</h6>
+</footer>
 
 
 <!-- JQuery -->

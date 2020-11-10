@@ -8,8 +8,8 @@
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="app/assets/css/bootstrap.min.css">
-    <!-- Outros -->
-    <!-- <link rel="stylesheet" href=""> -->
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="app/assets/img/footer.png" />
     <!-- Icomoon-->
     <link rel="stylesheet" href="app/assets/img/icons/icomoon.css">
     <!-- Meu CSS -->
@@ -18,7 +18,9 @@
 </head>
 
 <body>
-
     <!-- Header -->
-    <h1>Header</h1>
-
+    <header class="container-fluid">
+        <div class="text-center">
+            <img src="app/assets/img/projetoFinal-header.jpg" alt="">
+        </div>
+    </header>
