@@ -19,8 +19,8 @@
 
 <body>
     <!-- Header -->
-    <header class="container-fluid">
+    <header>
         <div class="text-center">
-            <img src="app/assets/img/proFinal-header.jpg" alt="">
+            <img src="app/assets/img/projFinal-header.jpg" alt="" class="img-fluid">
         </div>
     </header>

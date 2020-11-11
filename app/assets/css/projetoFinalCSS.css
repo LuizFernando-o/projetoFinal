@@ -1,1 +1,5 @@
 /* Meu CSS */
+
+body {
+    background-image: url(../img/background.svg);
+}
