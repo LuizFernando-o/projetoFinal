@@ -21,6 +21,6 @@
     <!-- Header -->
     <header class="container-fluid">
         <div class="text-center">
-            <img src="app/assets/img/projetoFinal-header.jpg" alt="">
+            <img src="app/assets/img/proFinal-header.jpg" alt="">
         </div>
     </header>

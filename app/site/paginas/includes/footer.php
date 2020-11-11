@@ -1,8 +1,19 @@
 <footer class="container-fluid table-secondary py-4">
+
+    <div class="row">
+        <div class="col-5"></div>
+        <div class="col mx-5 px-5">
+            <div class="text-center">
+                <img src="app/assets/img/footer.png" alt="" class="img-fluid rounded-circle ">
+                <br>
+            </div>
+        </div>
+        <div class="col-5"></div>
+    </div>
+
     <div class="text-center">
-        <img src="app/assets/img/footer.png" alt="" class="img-fluid rounded-circle ">
-        <br>
         <small>Todos os direitos reservados &copy; 2020.</small>
+    </div>
 </footer>
 <!-- JQuery -->
 <script src="app/assets/js/jquery.js"></script>
