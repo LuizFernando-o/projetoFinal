@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg bg-white navbar-light">
-    <img src="app/assets/img/footerIcon.png" alt="" class="rounded-circle p-2">
+<nav class="navbar navbar-expand-lg table-dark navbar-light">
+    <img src="app/assets/img/footerIcon.png" alt="" class="rounded-circle">
     <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
