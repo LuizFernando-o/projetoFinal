@@ -12,14 +12,12 @@
                 <a class="nav-link  <?php echo (($_GET['pg'] == 'contato') ? ' btn btn-secondary' : ''); ?>" href="index.php?pg=contato"> <span class="luiz-phone text-info"></span>  Contatos</a>
             </li>
         </ul>
-        <div class="text-right">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a href="cpanel.php?pg=login" class="btn btn-outline-info">Painel Adm</a>
-                </li>
-            </ul>
-        </div>
-        <!-- <ul class="navbar-nav mr-5 pr-5">
+
+
+
+        <?php
+        if (isset($_SESSION[''])) { ?>
+            <!-- <ul class="navbar-nav mr-5 pr-5">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="luiz-user text-info"></span>
@@ -29,5 +27,19 @@
                 </div>
             </li>
         </ul> -->
+        <?php
+        } else { ?>
+            <div class="text-right">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a href="cpanel.php?pg=login" class="btn btn-outline-info">Painel Adm</a>
+                    </li>
+                </ul>
+            </div>
+        <?php
+        }
+        ?>
+
+
     </div>
 </nav>
