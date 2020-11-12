@@ -1,5 +1,6 @@
 /* Meu CSS */
 
-body {
+body,
+.login-page {
     background-image: url(../img/background.svg);
 }
