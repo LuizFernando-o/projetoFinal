@@ -9,12 +9,12 @@
             <form action="?pg=validaLogin" method="POST">
                 <div class="form-group w-100">
                     <label for="inputAddress">Nome</label>
-                    <input type="text" class="form-control" name="nome" id="inputAddress" placeholder="Luiz Fernando Leite">
+                    <input required type="text" class="form-control" name="nome" id="inputAddress" placeholder="ex.: Luiz Fernando Leite">
                 </div>
                 <div class="form-row">
                     <div class="form-group w-100">
                         <label for="inputEmail4">Email</label>
-                        <input type="email" class="form-control" name="email" id="inputEmail4" placeholder="Email">
+                        <input required type="email" class="form-control" name="email" id="inputEmail4" placeholder="ex.: luiz@exemplo.com">
                     </div>
                 </div>
 
