@@ -16,13 +16,6 @@
     </div>
 </footer>
 
-<!-- jQuery -->
-<script src="app/cpanel/plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="app/cpanel/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="app/cpanel/dist/js/adminlte.min.js"></script>
-
 <!-- JQuery -->
 <script src="app/assets/js/jquery.js"></script>
 <!-- Bootstrap -->

@@ -1,4 +1,5 @@
-<div class="text-center">
-    <h1>INICIAL</h1>
-</div>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<?php
+include "app/assets/plugins/standard.php";
+
+
+

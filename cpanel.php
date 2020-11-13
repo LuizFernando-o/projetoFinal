@@ -1,19 +1,24 @@
 <?php
-//Header
-include_once "app/site/paginas/includes/header.php";
 
-//Navegação
-include_once "app/site/paginas/includes/navegacao.php";
+if (!isset($_SESSION['usuario'])) {
+    $usuario = "Luiz Fernando Leite";
+    $senha = 123456;
 
-// Páginas do meu site
 
-$paginas = isset($_GET['pg']);
+    session_start();
 
-if ($paginas) {
+    $_SESSION['usuario'] = $usuario;
+    $_SESSION['senha'] = $senha;
+
 
     switch ($_GET['pg']) {
+
         case 'login':
             include_once "app/site/paginas/login.php";
+            break;
+
+        case 'cpanel':
+            include_once "app/cpanel/index.php";
             break;
 
         default:
@@ -21,7 +26,6 @@ if ($paginas) {
             break;
     }
 } else {
-    include_once "app/site/paginas/inicial.php";
+
+    include_once "app/site/paginas/login.php";
 }
-//Footer
-include_once "app/site/paginas/includes/footer.php";
