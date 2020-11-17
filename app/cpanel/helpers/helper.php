@@ -9,7 +9,7 @@ function verificaSeLogado()
 
     if ($_POST['usuario'] == $usuario) {
 
-        $_SESSION = $usuario;
+        $_SESSION['usuario'] = $usuario;
         echo 'igual';
         return true;
     } else {

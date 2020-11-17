@@ -5,6 +5,7 @@ session_start();
 //definindo a variavel pg
 $pg = 'cpanel';
 
+
 if (isset($_GET['pg'])) {
     $pg = $_GET['pg'];
 }
@@ -13,28 +14,52 @@ if (isset($_GET['pg'])) {
 if (isset($_SESSION['usuario'])) {
     switch ($pg) {
         case 'cpanel':
-            include_once "app/cpanel/index.php";
+            include_once "app/cpanel/paginas/includes/header.php";
+            include_once "app/cpanel/paginas/includes/navegacao.php";
+            include_once "app/cpanel/paginas/inicial.php";
+            include_once "app/cpanel/paginas/includes/footer.php";
             break;
 
         case 'sair':
+            session_destroy();
+            Header('Location' . $_SERVER['PHP_SELF']);
             break;
 
+        case 'produtos':
+            include_once "app/cpanel/paginas/includes/header.php";
+            include_once "app/cpanel/paginas/includes/navegacao.php";
+            include_once "app/cpanel/paginas/produtos.php";
+            include_once "app/cpanel/paginas/includes/footer.php";
+            break;
+
+        case 'contato':
+            include_once "app/cpanel/paginas/includes/header.php";
+            include_once "app/cpanel/paginas/includes/navegacao.php";
+            include_once "app/cpanel/paginas/contato.php";
+            include_once "app/cpanel/paginas/includes/footer.php";
+            break;
 
         default:
-            include_once "app/cpanel/index.php";
+            include_once "app/cpanel/paginas/includes/header.php";
+            include_once "app/cpanel/paginas/includes/navegacao.php";
+            include_once "app/cpanel/paginas/inicial.php";
+            include_once "app/cpanel/paginas/includes/footer.php";
+
             break;
     }
 } else {
 
     //verifica se existe algum método POST
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        
-        if (verificaSeLogado()) {
-           // incluir o painel lá do negocio ... include_once;
-        }
 
+        if (verificaSeLogado()) {
+            include_once "app/cpanel/paginas/includes/header.php";
+            include_once "app/cpanel/paginas/includes/navegacao.php";
+            include_once "app/cpanel/paginas/inicial.php";
+            include_once "app/cpanel/paginas/includes/footer.php";
+        }
     } else {
-        include_once "app/site/paginas/login.php";
+        include_once "app/cpanel/paginas/login.php";
     }
 }
 
