@@ -91,7 +91,7 @@
                 <li class="nav-item">
                     <a href="cpanel.php?pg=contato" class="nav-link">
                         <i class="nav-icon fas fa-phone"></i>
-                        <p class="fa-phone"> Contato</p>
+                        <p> Contato</p>
                     </a>
                 </li>
 
