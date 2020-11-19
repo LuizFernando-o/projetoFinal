@@ -23,6 +23,7 @@ if (isset($_SESSION['usuario'])) {
         case 'sair':
             session_destroy();
             Header('Location' . $_SERVER['PHP_SELF']);
+            include_once "app/index.php";
             break;
 
         case 'produtos':

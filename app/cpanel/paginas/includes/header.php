@@ -32,6 +32,10 @@
   <link rel="stylesheet" href="app/cpanel/plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="app/cpanel/plugins/summernote/summernote-bs4.min.css">
+  <!-- Meu CSS -->
+  <link rel="stylesheet" href="app/assets/css/projetoFinalCSS.css">
 </head>
 
-<body class="hold-transition sidebar-mini layout-fixed">
+
+
+<body class="hold-transition sidebar-mini layout-fixed body">
