@@ -40,6 +40,13 @@ if (isset($_SESSION['usuario'])) {
             include_once "app/cpanel/paginas/includes/footer.php";
             break;
 
+        case 'usuarios-listar':
+            include_once "app/cpanel/paginas/includes/header.php";
+            include_once "app/cpanel/paginas/includes/navegacao.php";
+            include_once "app/cpanel/paginas/usuarios-listar.php";
+            include_once "app/cpanel/paginas/includes/footer.php";
+            break;
+
         default:
             include_once "app/cpanel/paginas/includes/header.php";
             include_once "app/cpanel/paginas/includes/navegacao.php";
