@@ -20,12 +20,6 @@ if (isset($_SESSION['usuario'])) {
             include_once "app/cpanel/paginas/includes/footer.php";
             break;
 
-        case 'sair':
-            session_destroy();
-            Header('Location' . $_SERVER['PHP_SELF']);
-            include_once "app/index.php";
-            break;
-
         case 'produtos':
             include_once "app/cpanel/paginas/includes/header.php";
             include_once "app/cpanel/paginas/includes/navegacao.php";
@@ -40,10 +34,32 @@ if (isset($_SESSION['usuario'])) {
             include_once "app/cpanel/paginas/includes/footer.php";
             break;
 
+        case 'sair':
+            session_destroy();
+            Header('Location' . $_SERVER['PHP_SELF']);
+            include_once "app/index.php";
+            break;
+
+            // ***************************** C R U D ********************************//
+
+        case 'usuarios-form':
+            include_once "app/cpanel/paginas/includes/header.php";
+            include_once "app/cpanel/paginas/includes/navegacao.php";
+            include_once "app/cpanel/paginas/usuarios-form.php";
+            include_once "app/cpanel/paginas/includes/footer.php";
+            break;
+
         case 'usuarios-listar':
             include_once "app/cpanel/paginas/includes/header.php";
             include_once "app/cpanel/paginas/includes/navegacao.php";
             include_once "app/cpanel/paginas/usuarios-listar.php";
+            include_once "app/cpanel/paginas/includes/footer.php";
+            break;
+
+        case 'usuarios-novo':
+            include_once "app/cpanel/paginas/includes/header.php";
+            include_once "app/cpanel/paginas/includes/navegacao.php";
+            inserirUsuario();
             include_once "app/cpanel/paginas/includes/footer.php";
             break;
 
