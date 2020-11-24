@@ -63,7 +63,44 @@ if (isset($_SESSION['usuario'])) {
             include_once "app/cpanel/paginas/includes/footer.php";
             break;
 
+        case 'usuario-apagar':
+
+            $parametros = array(':id_usuario' => $_GET['id']);
+            $apagarUsuario = new Conexao();
+            $apagarUsuario->intervencaoNoBanco('DELETE FROM usuarios WHERE id_usuario = :id_usuario', $parametros);
+            Header('Location: ?pg=usuarios-listar');
+            break;
+
+        case 'usuario-visualizar':
+
+            include_once "app/cpanel/paginas/includes/header.php";
+            include_once "app/cpanel/paginas/includes/navegacao.php";
+            include_once "app/cpanel/paginas/usuarios-visualizar.php";
+            include_once "app/cpanel/paginas/includes/footer.php";
+            break;
+
+        case 'usuario-editar':
+
+            include_once "app/cpanel/paginas/includes/header.php";
+            include_once "app/cpanel/paginas/includes/navegacao.php";
+
+            if ($_REQUEST['REQUEST_METHOD'] == 'POST') {
+                atualizarUsuario();
+            } else {
+                echo 'mostrar usuário pelo ID';
+                $idUsuarioEditar = isset($_GET['id']);
+                if ($idUsuarioEditar) {
+                    //...
+                }
+            }
+
+            include_once "app/cpanel/paginas/usuarios-editar.php";
+            include_once "app/cpanel/paginas/includes/footer.php";
+            break;
+
+
         default:
+
             include_once "app/cpanel/paginas/includes/header.php";
             include_once "app/cpanel/paginas/includes/navegacao.php";
             include_once "app/cpanel/paginas/inicial.php";
@@ -86,73 +123,3 @@ if (isset($_SESSION['usuario'])) {
         include_once "app/cpanel/paginas/login.php";
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// if (!isset($_SESSION['usuario'])) {
-//     $usuario = "Luiz Fernando Leite";
-//     $senha = 123456;
-
-
-//     session_start();
-
-//     $_SESSION['usuario'] = $usuario;
-//     $_SESSION['senha'] = $senha;
-
-
-//     switch ($_GET['pg']) {
-
-//         case 'login':
-//             include_once "app/site/paginas/login.php";
-//             break;
-
-//         case 'cpanel':
-//             include_once "app/cpanel/index.php";
-//             break;
-
-//         default:
-//             include_once "app/site/paginas/inicial.php";
-//             break;
-//     }
-// } else {
-
-//     include_once "app/site/paginas/login.php";
-// }

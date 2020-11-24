@@ -40,3 +40,25 @@ function inserirUsuario()
 
     include_once "app/cpanel/paginas/usuarios-listar.php";
 }
+
+function atualizarUsuario()
+{
+
+    //pegando variaveis via POST
+    $idUsuario = trim($_POST['id']);
+    $senha = trim($_POST['senha']);
+
+    //validando as variaveis
+    $parametros = array(':id_usuario' => $idUsuario, ':senha' => $senha);
+
+    //atualizando no banco
+    $atualizaUsuario = new Conexao();
+    $atualizaUsuario->intervencaoNoBanco('UPDATE usuarios SET senha = :senha WHERE id_usuario = :id_usuario', $parametros);
+
+    include_once "app/cpanel/paginas/usuarios-listar.php";
+}
+
+function visualizarUsuario()
+{
+    //criar função
+}
