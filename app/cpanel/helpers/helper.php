@@ -3,8 +3,10 @@ include_once "app/cpanel/helpers/conexao.php";
 
 function verificaSeLogado()
 {
-
+    
     $usuario = trim($_POST['usuario']);
+    $senha = trim($_POST['senha']);
+
     $resultConexao = new Conexao();
 
     $parametros = array(
@@ -14,8 +16,15 @@ function verificaSeLogado()
     $resultadoConsulta = $resultConexao->consultarBanco('SELECT * FROM usuarios WHERE nome = :usuario', $parametros);
 
     if (count($resultadoConsulta) > 0) {
-        $_SESSION['usuario'] = $usuario;
-        return true;
+        $senha_bd = $resultadoConsulta[0]['senha'];
+
+        if (password_verify($senha, $senha_bd)) {
+            $_SESSION['usuario'] = $usuario;
+            return true;
+        } else {
+            echo 'senha não confere';
+            return false;
+        }
     } else {
         echo 'Usuário e/ou senha não confere!';
     }
@@ -58,7 +67,18 @@ function atualizarUsuario()
     include_once "app/cpanel/paginas/usuarios-listar.php";
 }
 
-function visualizarUsuario()
+function visualizarUsuario($id)
 {
-    //criar função
+    if ($id) {
+        $parametros = array(':id_usuario' => $_GET['id']);
+
+        $resultUsuarioConsulta = new Conexao();
+        $dados = $resultUsuarioConsulta->consultarBanco('SELECT * FROM usuarios WHERE id_usuario = :id_usuario', $parametros);
+
+        if (count($dados) > 0) {
+            return $dados;
+        } else {
+            Header('Location: ?pg=usuarios-listar');
+        }
+    }
 }

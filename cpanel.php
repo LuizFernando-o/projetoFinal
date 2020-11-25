@@ -37,7 +37,7 @@ if (isset($_SESSION['usuario'])) {
         case 'sair':
             session_destroy();
             Header('Location' . $_SERVER['PHP_SELF']);
-            include_once "app/index.php";
+            Header('Location: ?pg=inicial');
             break;
 
             // ***************************** C R U D ********************************//
@@ -84,17 +84,19 @@ if (isset($_SESSION['usuario'])) {
             include_once "app/cpanel/paginas/includes/header.php";
             include_once "app/cpanel/paginas/includes/navegacao.php";
 
-            if ($_REQUEST['REQUEST_METHOD'] == 'POST') {
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 atualizarUsuario();
             } else {
-                echo 'mostrar usuário pelo ID';
+
                 $idUsuarioEditar = isset($_GET['id']);
+
                 if ($idUsuarioEditar) {
-                    //...
+                    $dadosUsuario = visualizarUsuario($idUsuarioEditar);
+                    include_once "app/cpanel/paginas/usuarios-editar.php";
+                }else{
+                    Header('Location: ?pg=usuarios-listar');
                 }
             }
-
-            include_once "app/cpanel/paginas/usuarios-editar.php";
             include_once "app/cpanel/paginas/includes/footer.php";
             break;
 
