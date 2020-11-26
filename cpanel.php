@@ -79,6 +79,14 @@ if (isset($_SESSION['usuario'])) {
             include_once "app/cpanel/paginas/includes/footer.php";
             break;
 
+        case 'usuario-visualizar-msg':
+
+            include_once "app/cpanel/paginas/includes/header.php";
+            include_once "app/cpanel/paginas/includes/navegacao.php";
+            include_once "app/cpanel/paginas/usuarios-visualizar-msg.php";
+            include_once "app/cpanel/paginas/includes/footer.php";
+            break;
+
         case 'usuario-editar':
 
             include_once "app/cpanel/paginas/includes/header.php";
@@ -93,7 +101,7 @@ if (isset($_SESSION['usuario'])) {
                 if ($idUsuarioEditar) {
                     $dadosUsuario = visualizarUsuario($idUsuarioEditar);
                     include_once "app/cpanel/paginas/usuarios-editar.php";
-                }else{
+                } else {
                     Header('Location: ?pg=usuarios-listar');
                 }
             }

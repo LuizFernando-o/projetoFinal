@@ -3,7 +3,7 @@ include_once "app/cpanel/helpers/conexao.php";
 
 function verificaSeLogado()
 {
-    
+
     $usuario = trim($_POST['usuario']);
     $senha = trim($_POST['senha']);
 
@@ -54,11 +54,11 @@ function atualizarUsuario()
 {
 
     //pegando variaveis via POST
-    $idUsuario = trim($_POST['id']);
+    $idUsuario = trim($_POST['id_usuario']);
     $senha = trim($_POST['senha']);
 
     //validando as variaveis
-    $parametros = array(':id_usuario' => $idUsuario, ':senha' => $senha);
+    $parametros = array(':id_usuario' => $idUsuario, ':senha' => password_hash($senha, PASSWORD_DEFAULT));
 
     //atualizando no banco
     $atualizaUsuario = new Conexao();
@@ -82,3 +82,4 @@ function visualizarUsuario($id)
         }
     }
 }
+

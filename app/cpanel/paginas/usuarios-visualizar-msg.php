@@ -1,4 +1,5 @@
 <?php
+
 $id = isset($_GET['id']);
 
 if ($id) {
@@ -7,17 +8,16 @@ if ($id) {
     $parametros = array(':id_usuario' => $id);
 
     $resultUsuario = new Conexao();
-    $dados = $resultUsuario->consultarBanco('SELECT * FROM usuarios WHERE id_usuario = :id_usuario', $parametros);
+    $dados = $resultUsuario->consultarBanco('SELECT * FROM contato WHERE id_usuario = :id_usuario', $parametros);
 
     //return $dados;
 } else {
-    Header('Location: ?pg=usuarios-listar');
+    Header('Location: ?pg=contato');
 }
 
 ?>
 
 <div class="wrapper">
-
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -25,7 +25,7 @@ if ($id) {
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Editar Usuário</h1>
+                        <h1>Visualizar Usuário</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -44,23 +44,29 @@ if ($id) {
                     <div class="col-12">
 
                         <?php foreach ($dados as $dadosUsuario) { ?>
-
-                            <form action="?pg=usuario-editar" method="POST">
-                                <div class="form-group">
-                                    <label for="exampleFormControlInput1">Nome do usuário</label>
-                                    <input required type="email" class="form-control" name="nome" disabled value="<?php echo $dadosUsuario['nome'] ?>" id="usuario">
+                            <div class="jumbotron alert-secondary">
+                                <h5> Nome Usuário:</h5>
+                                <div class="display-5">
+                                    <?php echo $dadosUsuario['nome'] ?>
                                 </div>
-                                <input type="hidden" name="id_usuario" value="<?php echo $dadosUsuario['id_usuario'] ?>">
-                                <div class="form-group">
-                                    <label for="exampleFormControlInput1">Senha</label>
-                                    <input required type="password" class="form-control" name="senha" id="senha" placeholder="Digite uma senha">
+                                <br>
+                                <h5> Categoria:</h5>
+                                <div class="display-5">
+                                    <?php echo $dadosUsuario['cat'] ?>
+                                </div>
+                                <br>
+                                <h5>Mensagem:</h5>
+                                <div class="display-5">
+                                    <?php echo $dadosUsuario['msg'] ?>
                                 </div>
 
-                                <a href="?pg=usuarios-listar" class="btn btn-secondary ">Voltar</a>
-                                <input type="submit" class="btn btn-success" value="Confirmar">
 
-                            </form>
+                                <hr>
+                                <a href="?pg=contato" class="btn btn-warning ">Voltar</a>
+
+                            </div>
                         <?php } ?>
+
                     </div>
                     <!-- /.col -->
                 </div>
