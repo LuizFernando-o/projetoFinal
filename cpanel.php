@@ -27,6 +27,20 @@ if (isset($_SESSION['usuario'])) {
             include_once "app/cpanel/paginas/includes/footer.php";
             break;
 
+        case 'produtos-form':
+            include_once "app/cpanel/paginas/includes/header.php";
+            include_once "app/cpanel/paginas/includes/navegacao.php";
+            include_once "app/cpanel/paginas/produtos-form.php";
+            include_once "app/cpanel/paginas/includes/footer.php";
+            break;
+
+        case 'produtos-novo':
+            include_once "app/cpanel/paginas/includes/header.php";
+            include_once "app/cpanel/paginas/includes/navegacao.php";
+            inserirProduto();
+            include_once "app/cpanel/paginas/includes/footer.php";
+            break;
+
         case 'contato':
             include_once "app/cpanel/paginas/includes/header.php";
             include_once "app/cpanel/paginas/includes/navegacao.php";
@@ -69,6 +83,14 @@ if (isset($_SESSION['usuario'])) {
             $apagarUsuario = new Conexao();
             $apagarUsuario->intervencaoNoBanco('DELETE FROM usuarios WHERE id_usuario = :id_usuario', $parametros);
             Header('Location: ?pg=usuarios-listar');
+            break;
+
+        case 'usuario-apagar-msg':
+
+            $parametros = array(':id_usuario' => $_GET['id']);
+            $apagarUsuario = new Conexao();
+            $apagarUsuario->intervencaoNoBanco('DELETE FROM contato WHERE id_usuario = :id_usuario', $parametros);
+            Header('Location: ?pg=contato');
             break;
 
         case 'usuario-visualizar':

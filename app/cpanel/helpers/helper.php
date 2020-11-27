@@ -50,6 +50,27 @@ function inserirUsuario()
     include_once "app/cpanel/paginas/usuarios-listar.php";
 }
 
+function inserirProduto()
+{
+
+    //Pegando as variáveis via post
+    $nome = trim($_POST['nome']);
+    $desc = trim($_POST['desc']);
+    $preco = trim($_POST['preco']);
+
+    //Validar as variáveis e encriptar a senha
+    $parametros = array(
+        ':nome' => $nome,
+        ':descricao' => $desc,
+        ':preco' => $preco
+    );
+
+    $resultDados = new Conexao();
+    $resultDados->intervencaoNoBanco('INSERT INTO produtos(nome, descricao, preco) VALUES (:nome,:descricao ,:preco)', $parametros);
+
+    include_once "app/cpanel/paginas/produtos.php";
+}
+
 function atualizarUsuario()
 {
 
@@ -58,7 +79,10 @@ function atualizarUsuario()
     $senha = trim($_POST['senha']);
 
     //validando as variaveis
-    $parametros = array(':id_usuario' => $idUsuario, ':senha' => password_hash($senha, PASSWORD_DEFAULT));
+    $parametros = array(
+        ':id_usuario' => $idUsuario,
+        ':senha' => password_hash($senha, PASSWORD_DEFAULT)
+    );
 
     //atualizando no banco
     $atualizaUsuario = new Conexao();
@@ -83,3 +107,17 @@ function visualizarUsuario($id)
     }
 }
 
+
+function visualizarMensagem()
+{
+    $idUsuario = $_GET['id'];
+
+    $parametros = array(
+        ':visualizou' => 1,
+        ':id_usuario' => $idUsuario
+    );
+
+    //atualizando no banco
+    $atualizaUsuario = new Conexao();
+    $atualizaUsuario->intervencaoNoBanco('UPDATE contato SET visualizou = :visualizou WHERE id_usuario = :id_usuario', $parametros);
+}

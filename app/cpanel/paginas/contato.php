@@ -62,15 +62,14 @@ $dados = $resultDados->consultarBanco('SELECT * FROM contato');
 
                                                 <td>
                                                     <div class="text-center">
-                                                        <a href="?pg=usuario-visualizar-msg&id=<?php echo $dadosUsuarios['id_usuario'] ?>" class=" fas fa-eye btn btn-success"></a>
-                                                        <a href="?pg=usuario-apagar&id=<?php echo $dadosUsuarios['id_usuario'] ?>" class="  btn btn-danger"> <span class="fa fa-trash"></span></a>
+                                                        <a href="?pg=usuario-visualizar-msg&id=<?php echo $dadosUsuarios['id_usuario'] ?>" class=" fas fa-eye btn <?php echo ($dadosUsuarios['visualizou'] == 1) ? "btn-secondary" : "btn-success"; ?> "></a>
+                                                        <a href="?pg=usuario-apagar-msg&id=<?php echo $dadosUsuarios['id_usuario'] ?>" class="  btn btn-danger"> <span class="fa fa-trash"></span></a>
 
                                                     </div>
 
                                                 </td>
                                             </tr>
                                         <?php } ?>
-
 
                                     </tbody>
                                     <tfoot>

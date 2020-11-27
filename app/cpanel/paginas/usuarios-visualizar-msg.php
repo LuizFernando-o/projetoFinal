@@ -10,7 +10,8 @@ if ($id) {
     $resultUsuario = new Conexao();
     $dados = $resultUsuario->consultarBanco('SELECT * FROM contato WHERE id_usuario = :id_usuario', $parametros);
 
-    //return $dados;
+    
+    visualizarMensagem();
 } else {
     Header('Location: ?pg=contato');
 }
