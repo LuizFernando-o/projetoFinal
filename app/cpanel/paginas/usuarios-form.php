@@ -32,14 +32,19 @@ $dados = $resultDados->consultarBanco('SELECT * FROM usuarios');
                 <div class="row">
                     <div class="col-12">
 
-                        <form action="?pg=usuarios-novo" method="POST">
+                        <form action="?pg=usuarios-novo" method="POST" enctype="multipart/form-data">
                             <div class="form-group">
-                                <label for="exampleFormControlInput1">Nome do usuário</label>
+                                <label for="nome">Nome do usuário</label>
                                 <input required type="email" class="form-control" name="nome" autofocus id="usuario" placeholder="Digite o nome do usuário">
                             </div>
+
                             <div class="form-group">
-                                <label for="exampleFormControlInput1">Senha</label>
+                                <label for="senha">Senha</label>
                                 <input required type="password" class="form-control" name="senha" id="senha" placeholder="Digite uma senha">
+                            </div>
+
+                            <div class="form-group">
+                                <input required type="file" name="img_usuario" id="img_usuario">
                             </div>
 
                             <a href="?pg=usuarios-listar" class="btn btn-secondary ">Voltar</a>

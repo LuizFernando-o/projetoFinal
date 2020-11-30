@@ -23,6 +23,10 @@
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Faça o login para iniciar sua sessão</p>
 
+                <?php if (isset($erro)) { ?>
+                    <div class="alert alert-danger" id="erro"> <?php echo $erro ?> </div>
+                <?php } ?>
+
                 <form action="cpanel.php?pg=cpanel" method="post">
                     <div class="input-group mb-3">
                         <input type="email" name="usuario" class="form-control" placeholder="Email">
@@ -83,3 +87,5 @@
 <script src="app/cpanel/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="app/cpanel/dist/js/adminlte.min.js"></script>
+<!-- MEU JS -->
+<script src="app/assets/js/projetoFinal.js"></script>

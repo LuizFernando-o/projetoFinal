@@ -22,11 +22,12 @@ function verificaSeLogado()
             $_SESSION['usuario'] = $usuario;
             return true;
         } else {
-            echo 'senha não confere';
-            return false;
+            $erro = 'Usuário e/ou senha inválidos';
+            include_once "app/cpanel/paginas/login.php";
         }
     } else {
-        echo 'Usuário e/ou senha não confere!';
+        $erro = 'Usuário e/ou senha inválidos';
+        include_once "app/cpanel/paginas/login.php";
     }
 }
 
@@ -38,14 +39,36 @@ function inserirUsuario()
     $nome = trim($_POST['nome']);
     $senha = trim($_POST['senha']);
 
+    //Pegando a imagem
+    // $img_usuario = $_FILES['img_usuario'];
+    //$img_usuario = $_FILES['img_usuario']['name'];
+
+    // echo '<pre>';
+    // print_r($_FILES);
+    // die();
+
+    /********************************************************************************
+     * 
+     * 
+     *                              FALTOU TESTAR
+     * 
+     * 
+     *********************************************************************************/
+
+
+
+    move_uploaded_file($_FILES['img_usuario']['tmp_name'], 'app/cpanel/assets/img/' . $_FILES['img_usuario']['name']);
+    //die('Upload realizado com sucesso');
+
     //Validar as variáveis e encriptar a senha
     $parametros = array(
         ':nome' => $nome,
-        ':senha' => password_hash($senha, PASSWORD_DEFAULT)
+        ':senha' => password_hash($senha, PASSWORD_DEFAULT),
+        ':img_usuario' => ($_FILES['img_usuario']['name'] == true) ? 'app/cpanel/assets/img/' . $_FILES['img_usuario']['name'] : 'app/cpanel/assets/img/anonimo.jpg'
     );
 
     $resultDados = new Conexao();
-    $resultDados->intervencaoNoBanco('INSERT INTO usuarios(nome, senha) VALUES (:nome,:senha)', $parametros);
+    $resultDados->intervencaoNoBanco('INSERT INTO usuarios(nome, senha, img) VALUES (:nome,:senha, :img_usuario)', $parametros);
 
     include_once "app/cpanel/paginas/usuarios-listar.php";
 }

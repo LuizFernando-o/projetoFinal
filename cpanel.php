@@ -141,7 +141,7 @@ if (isset($_SESSION['usuario'])) {
             break;
     }
 } else {
-
+    $erro;
     //verifica se existe algum método POST
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -152,6 +152,7 @@ if (isset($_SESSION['usuario'])) {
             include_once "app/cpanel/paginas/includes/footer.php";
         }
     } else {
+
         include_once "app/cpanel/paginas/login.php";
     }
 }
