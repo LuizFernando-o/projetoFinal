@@ -1,8 +1,7 @@
 <?php
 $resultDados = new Conexao();
-$dados = $resultDados->consultarBanco('SELECT * FROM usuarios');
+$dados = $resultDados->consultarBanco('SELECT * FROM usuarios ORDER BY dataAtualizacao DESC');
 ?>
-
 
 
 <div class="wrapper">
@@ -56,7 +55,7 @@ $dados = $resultDados->consultarBanco('SELECT * FROM usuarios');
                                         <?php foreach ($dados as $dadosUsuarios) { ?>
                                             <tr>
 
-                                                <td> <?php echo $dadosUsuarios['img'] ?></td>
+                                                <td style="width: 10px;"> <img src="<?php echo $dadosUsuarios['img'] ?>" class="img-fluid"> </td>
                                                 <td> <?php echo $dadosUsuarios['id_usuario'] ?></td>
                                                 <td> <?php echo $dadosUsuarios['nome'] ?></td>
                                                 <td> <?php echo $dadosUsuarios['dataCriacao'] ?></td>

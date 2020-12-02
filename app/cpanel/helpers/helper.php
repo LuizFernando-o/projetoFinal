@@ -7,6 +7,7 @@ function verificaSeLogado()
     $usuario = trim($_POST['usuario']);
     $senha = trim($_POST['senha']);
 
+
     $resultConexao = new Conexao();
 
     $parametros = array(
@@ -20,6 +21,7 @@ function verificaSeLogado()
 
         if (password_verify($senha, $senha_bd)) {
             $_SESSION['usuario'] = $usuario;
+            $_SESSION['img_usuario'] = $resultadoConsulta[0]['img'];
             return true;
         } else {
             $erro = 'Usuário e/ou senha inválidos';
@@ -39,32 +41,14 @@ function inserirUsuario()
     $nome = trim($_POST['nome']);
     $senha = trim($_POST['senha']);
 
-    //Pegando a imagem
-    // $img_usuario = $_FILES['img_usuario'];
-    //$img_usuario = $_FILES['img_usuario']['name'];
-
-    // echo '<pre>';
-    // print_r($_FILES);
-    // die();
-
-    /********************************************************************************
-     * 
-     * 
-     *                              FALTOU TESTAR
-     * 
-     * 
-     *********************************************************************************/
-
-
-
     move_uploaded_file($_FILES['img_usuario']['tmp_name'], 'app/cpanel/assets/img/' . $_FILES['img_usuario']['name']);
-    //die('Upload realizado com sucesso');
 
     //Validar as variáveis e encriptar a senha
     $parametros = array(
         ':nome' => $nome,
         ':senha' => password_hash($senha, PASSWORD_DEFAULT),
-        ':img_usuario' => ($_FILES['img_usuario']['name'] == true) ? 'app/cpanel/assets/img/' . $_FILES['img_usuario']['name'] : 'app/cpanel/assets/img/anonimo.jpg'
+        ':img_usuario' => ($_FILES['img_usuario']['name'] == true) ? 'app/cpanel/assets/img/' . $_FILES['img_usuario']['name']
+            : 'app/cpanel/assets/img/anonimo.png'
     );
 
     $resultDados = new Conexao();

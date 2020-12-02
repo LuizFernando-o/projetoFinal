@@ -44,11 +44,14 @@ $dados = $resultDados->consultarBanco('SELECT * FROM usuarios');
                             </div>
 
                             <div class="form-group">
-                                <input required type="file" name="img_usuario" id="img_usuario">
+                                <input type="file" name="img_usuario">
+                            </div>
+                            <div class="form-group">
+                                <input type="file" name="img_usuario_destaque">
                             </div>
 
                             <a href="?pg=usuarios-listar" class="btn btn-secondary ">Voltar</a>
-                            <input type="submit" class="btn btn-success" value="Confirmar">
+                            <input type="submit" class="btn btn-success" value="Cadastrar">
 
                         </form>
                     </div>
