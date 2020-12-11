@@ -16,6 +16,10 @@ if ($id) {
 
 ?>
 
+
+
+
+
 <div class="wrapper">
 
     <!-- Content Wrapper. Contains page content -->
